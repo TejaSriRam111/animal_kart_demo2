@@ -1,0 +1,24 @@
+name: CI/CD Pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          fetch-depth: 0
+
+      # Add your build steps here...
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    # Add your deployment steps here...
+
+    # DEPLOYMENT_URL: https://example.com (add this comment if deployment is included)
